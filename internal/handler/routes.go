@@ -13,10 +13,22 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 	server.AddRoutes(
 		[]rest.Route{
 			{
-				// 需要初始化的Schema名称
+				// 获取Schema名称
 				Method:  http.MethodGet,
-				Path:    "/init/schemas",
-				Handler: InitSchemasHandler(serverCtx),
+				Path:    "/get/schemas",
+				Handler: GetSchemasHandler(serverCtx),
+			},
+			{
+				// 健康检查
+				Method:  http.MethodGet,
+				Path:    "/health",
+				Handler: HealthHandler(serverCtx),
+			},
+			{
+				// APP 版本
+				Method:  http.MethodGet,
+				Path:    "/version",
+				Handler: VersionHandler(serverCtx),
 			},
 		},
 	)

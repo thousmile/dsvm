@@ -1,0 +1,7 @@
+### GET Version
+GET http://{{rest}}/version
+
+### GET Health
+GET http://{{rest}}/health
+
+###

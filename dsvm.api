@@ -8,17 +8,37 @@ info (
 	version: "v1.1.0"
 )
 
-type InitSchemasRequest {}
+type GetSchemasRequest {}
 
-type InitSchemasResponse {
+type GetSchemasResponse {
 	Names []string `json:"names"`
+}
+
+type VersionResponse {
+	Version string `json:"version"`
+}
+
+type HealthResponse {
+	Message string `json:"message"`
 }
 
 service dsvm {
 	@doc (
-		summary: "需要初始化的Schema名称"
+		summary: "获取Schema名称"
 	)
-	@handler InitSchemasHandler
-	get /init/schemas (InitSchemasRequest) returns (InitSchemasResponse)
+	@handler GetSchemasHandler
+	get /get/schemas (GetSchemasRequest) returns (GetSchemasResponse)
+
+	@doc (
+		summary: "APP 版本"
+	)
+	@handler Version
+	get /version returns (VersionResponse)
+
+	@doc (
+		summary: "健康检查"
+	)
+	@handler Health
+	get /health returns (HealthResponse)
 }
 

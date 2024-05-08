@@ -7,6 +7,8 @@ import (
 )
 
 type Config struct {
+	Name           string             `yaml:"Name,default=dsvm" json:"Name,default=dsvm"`
+	Version        string             `yaml:"Version,default=v1.1.1" json:"Version,default=v1.1.1"`
 	RpcServerConf  zrpc.RpcServerConf `yaml:"RpcServerConf" json:"RpcServerConf"`
 	RestServerConf rest.RestConf      `yaml:"RestServerConf" json:"RestServerConf"`
 	LogxConf       logx.LogConf       `yaml:"LogxConf" json:"LogxConf"`
