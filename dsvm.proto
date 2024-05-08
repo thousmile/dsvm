@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package dsvm;
+
+option go_package = "./pb/dsvm;dsvm";
+
+service Dsvm {
+
+  // 需要初始化的Schema名称
+  rpc InitSchemas (InitSchemasRequest) returns (InitSchemasResponse);
+
+}
+
+message InitSchemasRequest{
+}
+
+message InitSchemasResponse{
+  repeated string names = 1;
+}

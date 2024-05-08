@@ -1,0 +1,24 @@
+syntax = "v1"
+
+info (
+	title:   "dsvm service"
+	desc:    "dsvm service api 接口"
+	author:  "WangChenChen"
+	email:   "932560435@qq.com"
+	version: "v1.1.0"
+)
+
+type InitSchemasRequest {}
+
+type InitSchemasResponse {
+	Names []string `json:"names"`
+}
+
+service dsvm {
+	@doc (
+		summary: "需要初始化的Schema名称"
+	)
+	@handler InitSchemasHandler
+	get /init/schemas (InitSchemasRequest) returns (InitSchemasResponse)
+}
+
