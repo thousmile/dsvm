@@ -14,6 +14,18 @@ func RunHttpServer() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 	router.Use(gin.Recovery(), cors.Default())
+	router.StaticFS("/static", http.Dir("static"))
+	router.StaticFS("/vs", http.Dir("static/monaco-editor/vs"))
+	router.Delims("[{[", "]}]")
+	router.LoadHTMLGlob("templates/*")
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK,
+			"index.tmpl",
+			gin.H{
+				"title": "Database Schema Version Management",
+			},
+		)
+	})
 	router.Any("/up", func(c *gin.Context) {
 		params := struct {
 			Schema  string `json:"schema" form:"schema"`

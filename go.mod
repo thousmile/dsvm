@@ -9,6 +9,7 @@ require (
 	github.com/go-resty/resty/v2 v2.12.0
 	github.com/go-sql-driver/mysql v1.8.1
 	github.com/google/uuid v1.6.0
+	github.com/hairyhenderson/go-fsimpl v0.1.0
 	github.com/lib/pq v1.10.9
 	github.com/microsoft/go-mssqldb v1.7.0
 	github.com/pressly/goose/v3 v3.20.0
@@ -65,7 +66,7 @@ require (
 	golang.org/x/sync v0.7.0 // indirect
 	golang.org/x/sys v0.20.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240227224415-6ceb2ff114de // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240314234333-6e1732d8331c // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/libc v1.41.0 // indirect

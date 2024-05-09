@@ -40,11 +40,11 @@ func updateBySchema(source *model.GooseDataSource, version int64, f1 bool) error
 		return err
 	}
 	if f1 {
-		if err := goose.UpTo(source.Db, "migrations", version); err != nil {
+		if err := goose.UpTo(source.Db, ".", version); err != nil {
 			return err
 		}
 	} else {
-		if err := goose.DownTo(source.Db, "migrations", version); err != nil {
+		if err := goose.DownTo(source.Db, ".", version); err != nil {
 			return err
 		}
 	}

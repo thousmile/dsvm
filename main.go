@@ -3,12 +3,9 @@ package main
 import (
 	"dsvm/core"
 	"dsvm/initialize"
-	"embed"
 	"github.com/pressly/goose/v3"
+	"os"
 )
-
-//go:embed migrations/*.sql
-var embedMigrations embed.FS
 
 func main() {
 	// 初始化 viper config
@@ -19,8 +16,9 @@ func main() {
 
 	// 初始化 数据源
 	initialize.DataSource()
+
 	// 初始化 goose
-	goose.SetBaseFS(embedMigrations)
+	goose.SetBaseFS(os.DirFS("./static/migrations"))
 
 	// 启动 http server
 	core.RunHttpServer()

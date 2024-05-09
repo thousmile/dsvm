@@ -4,9 +4,11 @@ dsvm : "Database Schema Version Management"
 
 
 ```shell
+proto 生成 go 代码
 
-protoc dsvm.proto --go_out=. --go-grpc_out=.
+protoc --go_out=. --go-grpc_out=. proto/*.proto
 
-goctl api go --api dsvm.api --dir .
+golang 打包可执行文件
+goreleaser --snapshot --skip-publish --clean
 
 ```
