@@ -1,0 +1,27 @@
+appName: dsvm
+version: v1.1.1
+httpPort: 12888
+grpcPort: 12886
+
+# rest client configuration
+restClient:
+  enable: true
+  timeout: 3s
+  dialer:
+    timeout: 5s
+    keepAlive: 60s
+  retry:
+    count: 3
+    waitTime: 1s
+    maxWaitTime: 10s
+
+dataSources:
+  mysql:
+    dialect: mysql
+    createSchemaSql: CREATE DATABASE IF NOT EXISTS `%s`;
+    switchSchemaSql: USE %s;
+    addr: 192.168.0.188
+    port: 3306
+    dbName: test_db
+    username: test123
+    password: mht123456

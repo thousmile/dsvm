@@ -4,4 +4,12 @@ GET http://{{rest}}/version
 ### GET Health
 GET http://{{rest}}/health
 
-###
+### POST UP
+POST http://{{rest}}/up
+Content-Type: application/json
+
+{
+  "ds": "mysql",
+  "schema": "hello1",
+  "version": 3
+}
