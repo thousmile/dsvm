@@ -10,6 +10,5 @@ Content-Type: application/json
 
 {
   "ds": "mysql",
-  "schema": "hello1",
-  "version": 1
+  "schema": "hello1"
 }
